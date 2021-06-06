@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ryobi-gdo",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
