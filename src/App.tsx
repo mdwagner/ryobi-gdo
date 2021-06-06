@@ -22,18 +22,16 @@ import "@ionic/react/css/display.css";
 import "./theme/variables.css";
 
 /* Tailwindcss */
-import "./App.css";
+import "./tailwind.css";
 
 /* Pages */
 import Home from "./pages/Home";
-import NewItem from "./pages/NewItem";
 
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
       <IonRouterOutlet>
         <Route path="/home" children={<Home />} />
-        <Route path="/new" children={<NewItem />} />
         <Redirect exact from="/" to="/home" />
       </IonRouterOutlet>
     </IonReactRouter>

@@ -1,50 +1,36 @@
 import {
-  IonBadge,
-  IonCheckbox,
+  IonButton,
   IonContent,
-  IonFab,
-  IonFabButton,
   IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonNote,
   IonPage,
+  IonProgressBar,
   IonTitle,
   IonToolbar,
 } from "@ionic/react";
-import { add } from "ionicons/icons";
-import { useHistory } from "react-router-dom";
+import { RyobiApi } from "../utils/ryobi-api";
+
+(window as any).ryobi = new RyobiApi();
 
 const Home: React.FC = () => {
-  const history = useHistory();
-
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Ionic Blank</IonTitle>
+          <IonTitle>Ryobi GDO</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className="ion-padding">
-        <IonList>
-          <IonItem>
-            <IonCheckbox slot="start" />
-            <IonLabel>
-              <h1>Create Idea</h1>
-              <IonNote>Run Idea by Brandy</IonNote>
-            </IonLabel>
-            <IonBadge color="success" slot="end">
-              5 days
-            </IonBadge>
-          </IonItem>
-        </IonList>
-        <IonFab vertical="bottom" horizontal="end" slot="fixed">
-          <IonFabButton onClick={() => history.push("/new")}>
-            <IonIcon icon={add} />
-          </IonFabButton>
-        </IonFab>
+      <IonContent className="ion-padding">
+        <div className="flex flex-col items-center space-y-4">
+          <p className="text-lg">Status: Unknown</p>
+          <IonProgressBar color="primary" value={0.2} />
+          <div className="flex space-x-4">
+            <IonButton size="default">Open</IonButton>
+            <IonButton size="default">Close</IonButton>
+          </div>
+          <div className="mx-auto">
+            <IonButton size="default">Toggle light</IonButton>
+          </div>
+        </div>
       </IonContent>
     </IonPage>
   );
